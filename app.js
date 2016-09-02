@@ -2007,6 +2007,16 @@ for(let i=0; i<all_words.length; i++){
 }
 console.log (active_words);
 
+let lengthButt = document.querySelector('#lengthButt');
+let guessButt = document.querySelector('#guessButt');
+
+lengthButt.addEventListener("click", function(){
+    let wordLength = parseInt(document.querySelector('#length').value);
+    active_words = active_words.filter(function(word){
+        return (word.length === wordLength);
+    })
+})
+
 let letterGuess = 'b'
 function coolBreeze(word) {
     /**if (all the words left in the array have the 'input value'
@@ -2040,6 +2050,8 @@ function oops(editArray) {
 randoNum(4)//use as index into active_words to pick random word
 //to show letter and eliminate other words
         console.log('lucky guess, dillhole');
+//get rid of all words that don't have a certain letter 
+//in a certain position
 
 
     }

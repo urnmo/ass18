@@ -2002,39 +2002,13 @@ let all_words = [
 ];
 
 let active_words = [];
-for(let i=0; i<all_words.length; i++){
-   active_words.push(all_words[i]);
+for (let i = 0; i < all_words.length; i++) {
+    active_words.push(all_words[i]);
 }
-console.log (active_words);
 
-let lengthButt = document.querySelector('#lengthButt');
-let guessButt = document.querySelector('#guessButt');
 
-lengthButt.addEventListener("click", function(){
-    let wordLength = parseInt(document.querySelector('#length').value);
-    active_words = active_words.filter(function(word){
-        return (word.length === wordLength);
-    })
-})
-
-let letterGuess = 'b'
-function coolBreeze(word) {
-    /**if (all the words left in the array have the 'input value'
-     * show a correct guess
-     * show the letter in its first position
-     * remove all words that have that letter in another position)
-     * 
-     * 
-     * Else (return a wrong guess and remove all words that contain
-     * that letter)
-     * array.indexOf(thingToFind)
-     */
-    let letters = word.split('');
-    if (letters.indexOf(letterGuess) === -1) {
-        return true;
-    } else {
-        return false;
-    }
+function bopit() {
+    console.log(active_words);
 }
 
 function oops(editArray) {
@@ -2045,24 +2019,60 @@ function oops(editArray) {
 
         console.log('nope, doesnt exist');
     } else { // not ok to dodge
-    //there are only words with current letter here
-   //pass in randoNum function
-randoNum(4)//use as index into active_words to pick random word
-//to show letter and eliminate other words
+        //there are only words with current letter here
+        //pass in randoNum function
+
+        let rando = randoNum(active_words.length);
+        // console.log(active_words[rando]);
+
+
+        //use as index into active_words to pick random word
+        //to show letter and eliminate other words
         console.log('lucky guess, dillhole');
-//get rid of all words that don't have a certain letter 
-//in a certain position
+        //get rid of all words that don't have a certain letter 
+        //in a certain position
 
 
     }
 }
 
-oops(active_words.filter(coolBreeze))
-//this is calling function oops with the filtered words array
-
-
- //pick random word function
-function randoNum(arrayLength){
+//pick random word function
+function randoNum(arrayLength) {
     let index = Math.floor(Math.random() * editArray.length)
     return index;
+}
+
+window.addEventListener('load', function () {
+
+    let lengthButt = document.querySelector('#selectButt');
+    let guessButt = document.querySelector('#guessButt');
+
+    lengthButt.addEventListener("click", function () {
+        let wordLength = parseInt(document.querySelector('#length').value);
+        active_words = active_words.filter(function (word) {
+            return (word.length === wordLength);
+        })
+        bopit();
+    });
+
+    guessButt.addEventListener('click', function () {
+        let guessyGuess = (document.querySelector("#letterGuess").value);
+        active_words = active_words.filter(removewithLetter(word) {
+
+        })
+        });
+        bopit();
+
+    });
+
+
+function removewithLetter(letter) {
+    return active_words.filter(function (word) {
+        let letters = word.split('');
+        if (letters.indexOf(letterGuess) === -1) {
+            return true;
+        } else {
+            return false;
+        }
+    })
 }

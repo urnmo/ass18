@@ -2058,13 +2058,13 @@ window.addEventListener('load', function () {
     guessButt.addEventListener('click', function () {
         let guessyGuess = (document.querySelector("#letterGuess").value);
         if (removewithLetter(guessyGuess).length > 0 ) {
+//remove all letters with the user given value 
+//unless you can't dodge it
+       active_words = removewithLetter(guessyGuess);
+
             console.log('nope! none of those here');
 
-
-            // active_words = active_words.filter(function (letter) {
-
         }
-        bopit();
     });
 });
 
@@ -2072,10 +2072,13 @@ window.addEventListener('load', function () {
 function removewithLetter(letter) {
     return active_words.filter(function (word) {
         let letters = word.split('');
-        if (letters.indexOf(letterGuess) === -1) {
+        console.log (word);
+        let jerm = (letters.indexOf(letters));
+        console.log (jerm);
+        if (letters.indexOf(letters) === -1) {
             return true;
         } else {
             return false;
         }
     })
-}
+} 

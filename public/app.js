@@ -2063,7 +2063,7 @@ window.addEventListener('load', function () {
        active_words = removewithLetter(guessyGuess);
 
             console.log('nope! none of those here');
-
+bopit();
         }
     });
 });
@@ -2072,10 +2072,10 @@ window.addEventListener('load', function () {
 function removewithLetter(letter) {
     return active_words.filter(function (word) {
         let letters = word.split('');
-        console.log (word);
-        let jerm = (letters.indexOf(letters));
-        console.log (jerm);
-        if (letters.indexOf(letters) === -1) {
+        // console.log (letters);
+        let jerm = letters.indexOf(letter);
+        // console.log (jerm);
+        if (letters.indexOf(letter) === -1) {
             return true;
         } else {
             return false;

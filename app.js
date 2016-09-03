@@ -2057,8 +2057,8 @@ window.addEventListener('load', function () {
 
     guessButt.addEventListener('click', function () {
         let guessyGuess = (document.querySelector("#letterGuess").value);
-        if (removeWithLetter(guessyGuess) === false) {
-        console.log('nope! none of those here');
+        if (removewithLetter(guessyGuess).length > 0 ) {
+            console.log('nope! none of those here');
 
 
             // active_words = active_words.filter(function (letter) {
@@ -2069,13 +2069,13 @@ window.addEventListener('load', function () {
 });
 
 
-    function removewithLetter(letter){
-        return active_words.filter(function (word) {
-            let letters = word.split('');
-            if (letters.indexOf(letterGuess) === -1) {
-                return true;
-            } else {
-                return false;
-            }
-        })
-    }
+function removewithLetter(letter) {
+    return active_words.filter(function (word) {
+        let letters = word.split('');
+        if (letters.indexOf(letterGuess) === -1) {
+            return true;
+        } else {
+            return false;
+        }
+    })
+}

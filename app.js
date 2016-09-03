@@ -2057,22 +2057,25 @@ window.addEventListener('load', function () {
 
     guessButt.addEventListener('click', function () {
         let guessyGuess = (document.querySelector("#letterGuess").value);
-        active_words = active_words.filter(removewithLetter(word) {
-
-        })
-        });
-        bopit();
-
-    });
+        if (removeWithLetter(guessyGuess) === false) {
+        console.log('nope! none of those here');
 
 
-function removewithLetter(letter) {
-    return active_words.filter(function (word) {
-        let letters = word.split('');
-        if (letters.indexOf(letterGuess) === -1) {
-            return true;
-        } else {
-            return false;
+            // active_words = active_words.filter(function (letter) {
+
         }
-    })
-}
+        bopit();
+    });
+});
+
+
+    function removewithLetter(letter){
+        return active_words.filter(function (word) {
+            let letters = word.split('');
+            if (letters.indexOf(letterGuess) === -1) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+    }

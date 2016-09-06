@@ -1,0 +1,3 @@
+1. need a word length box that is user chosen
+2. cut out words that include a certain letter
+3. get rid of all words that don't have a certain letter in a certain position

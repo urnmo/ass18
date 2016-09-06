@@ -2085,12 +2085,20 @@ function removewithLetter(letter) {
 function cantDodge(array) {
     let rando = randoNum(array.length);
     let chosen = array[rando].split('');
-        console.log(chosen);
+    console.log(chosen);
     let guessyGuess = (document.querySelector("#letterGuess").value);
-    let CDarray =  chosen.map(function(letter, number){
-    if (guessyGuess === letter){
-        return number;
-    }
+    let CDarray = chosen.map(function (letter, number) {
+        if (guessyGuess === letter) {
+            return number;
+        }
     })
-}
+    return CDarray.filter(function (letter, number) {
+        if (letter >= 0) {
+            return true
+        } else { return false };
+    });
+};
 
+function lastResort(array) {
+    if ( )
+}
